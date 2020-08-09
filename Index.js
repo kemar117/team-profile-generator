@@ -92,10 +92,10 @@ function startHtml() {
         <title>SPARTANS</title>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark mb-5">
-            <span class="navbar-brand mb-0 h1 w-100 text-center">My Spartans</span>
+        <nav class="navbar navbar-dark bg-primary mb-5">
+            <span class="navbar-brand mb-0 h1 w-100 text-center text-white">My Spartans</span>
         </nav>
-        <div class="container">
+        <div class="container pure-g">
             <div class="row">`;
     fs.writeFile("./dist/team-profile.html", html, function(err) {
         if (err) {
@@ -114,9 +114,9 @@ function addHtml(member) {
         let data = "";
         if (role === "Manager") {
             const officeNumber = member.getOfficeNumber();
-            data = `<div class="col-6">
+            data = `<div class="col-6 pure-u-1 pure-u-md-1-3">
             <div class="card mx-auto mb-3" style="width: 18rem">
-            <h5 class="card-header">${name}<br /><br />Manager</h5>
+            <h5 class="card-header bg-success text-white">${name}<br /><br />Manager</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
@@ -127,8 +127,8 @@ function addHtml(member) {
         } else if (role === "Engineer") {
             const gitHub = member.getGithub();
             data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-            <h5 class="card-header">${name}<br /><br />Engineer</h5>
+            <div class="card mx-auto mb-3 pure-u-1 pure-u-md-1-3" style="width: 18rem">
+            <h5 class="card-header bg-warning text-white">${name}<br /><br />Engineer</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
@@ -139,8 +139,8 @@ function addHtml(member) {
         } else {
             const school = member.getSchool();
             data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 18rem">
-            <h5 class="card-header">${name}<br /><br />Intern</h5>
+            <div class="card mx-auto mb-3 pure-u-1 pure-u-md-1-3" style="width: 18rem">
+            <h5 class="card-header bg-warning text-white">${name}<br /><br />Intern</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
@@ -154,6 +154,7 @@ function addHtml(member) {
                 return reject(err);
             };
             return resolve();
+            
         });
     });        
 }
