@@ -15,7 +15,15 @@ function startUp() {
 function addMember() {
   inquirer.prompt([{
     message: "Enter team member's name",
-    name: "name"
+    name: "name",
+    validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter name!');
+          return false;
+      }
+    }
   },
   {
     type: "list",
@@ -33,7 +41,15 @@ function addMember() {
   },
   {
     message: "Enter team member's email address",
-    name: "email"
+    name: "email",
+    validate: nameInput => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log('Please enter valid email!');
+          return false;
+      }
+    }
   }])
   .then(function({name, role, id, email}) {
       let roleInfo = "";
