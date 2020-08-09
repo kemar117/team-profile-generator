@@ -7,7 +7,7 @@ const Intern = require("./lib/Intern");
 
 const employees = [];
 
-function initApp() {
+function startUp() {
     startHtml();
     addMember();
 }
@@ -40,7 +40,7 @@ function addMember() {
       if (role === "Manager") {
         roleInfo = "office phone number";
     } else if (role === "Engineer") {
-        roleInfo = "GitHub username";
+        roleInfo = "GitHub username link";
       } else {
           roleInfo = "school name";
       }
@@ -88,6 +88,7 @@ function startHtml() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
         <title>SPARTANS</title>
     </head>
     <body>
@@ -118,7 +119,7 @@ function addHtml(member) {
             <h5 class="card-header">${name}<br /><br />Manager</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
-                <a href="mailto:${email}" class="list-group-item">Email Address: </a>
+                <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
                 <li class="list-group-item">Office Phone: ${officeNumber}</li>
             </ul>
             </div>
@@ -130,8 +131,8 @@ function addHtml(member) {
             <h5 class="card-header">${name}<br /><br />Engineer</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
-                <a href="mailto:${email}" class="list-group-item">Email Address: </a>
-                <a href="${gitHub}" class="list-group-item"><p> GitHub: </p> ${gitHub}</a>
+                <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">GitHub: <a href="${gitHub}">${gitHub}</a></li>
             </ul>
             </div>
         </div>`;
@@ -142,13 +143,12 @@ function addHtml(member) {
             <h5 class="card-header">${name}<br /><br />Intern</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
-                <a href="mailto:${email}" class="list-group-item">Email Address: </a>
+                <li class="list-group-item">Email Address: <a href="mailto:${email}">${email}</a></li>
                 <li class="list-group-item">School: ${school}</li>
             </ul>
             </div>
         </div>`
         }
-        console.log("Spartan Acquired");
         fs.appendFile("./dist/team-profile.html", data, function (err) {
             if (err) {
                 return reject(err);
@@ -173,4 +173,4 @@ function finishHtml() {
     console.log("Ready to go!!");
 }
 
-initApp(); 
+startUp(); 
