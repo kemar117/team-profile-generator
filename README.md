@@ -1,6 +1,9 @@
 
 # **team-profile-generator**
-2
+
+## Screencastify Link
+Walkthrought video showing functionality
+https://drive.google.com/file/d/1yurqMKHuNp-4061YqU6PUsiZxplJYZiU/view
 ## Description 
 Team Profile Generator is a command line app that upon initiation is prompted by a few question about a team member they would like to add. The app is run in Node from the command line and once all questions are answered about the member as in name, email, role(Intern, Manager, Engineer) the app will use the information to generate an html.  
 ## Table of contents
